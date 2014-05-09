@@ -57,7 +57,7 @@ module GemRelease
     end
 
     def gemspec_dirs
-      Dir.glob('**/*.gemspec').map { |spec| File.dirname(spec) }
+      Dir.glob('**/*.gemspec').reject { |i| i[/^vendor/i] }.map { |spec| File.dirname(spec) }
     end
 
     def in_bootstrapped_dir
